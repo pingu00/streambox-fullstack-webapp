@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const session = require('express-session');
 
+dotenv.config();
+
 const app = express();
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -14,7 +17,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
-dotenv.config();
+
 
 const { populateDatabase } = require("./db/seed");
 const { MediaItem, User, Purchase } = require("./db/models");

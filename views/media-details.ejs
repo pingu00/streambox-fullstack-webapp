@@ -65,9 +65,9 @@
               <a href="<%= mediaItem.youtubeTrailerLink %>" target="_blank" class="btn-primary">
                 Watch Trailer
               </a>
-               <a href="/purchase/<%= mediaItem._id %>/<%= session.currUser?._id%>" target="_blank" class="btn-primary">
+               <!-- <a href="/purchase/<%= mediaItem._id %>/<%= session.currUser?._id%>" target="_blank" class="btn-primary">
                 Buy
-              </a>
+              </a> -->
               <% if (session.currUser?.isAdmin) { %>
                 <a href="/media/edit/<%= mediaItem._id %>" class="btn-primary">Edit</a>
                 <a href="/media/delete/<%= mediaItem._id %>" class="btn-primary">Delete</a>
