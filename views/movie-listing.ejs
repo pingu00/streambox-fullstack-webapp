@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox | Movies</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <%- include("partials/header.ejs") %>
+
+    <main>
+      <section class="listing-section container">
+        <h1>Movies</h1>
+
+        <div class="media-grid">
+          <% for (let movie of movies) { %>
+            <div class="media-card">
+              <a href="/media/<%= movie.id %>">
+                <img src="<%= movie.smallPosterImage %>" alt="<%= movie.title %>">
+              </a>
+
+              <p class="media-title">
+                <a href="/media/<%= movie.id %>">
+                  <%= movie.title %>
+                </a>
+              </p>
+            </div>
+            <% } %>
+        </div>
+      </section>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+
+</html>

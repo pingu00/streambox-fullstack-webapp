@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox | Edit Media</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <%- include("partials/header.ejs") %>
+
+  <main class="form-page">
+    <section class="form-section">
+      <h1>Edit Media Item</h1>
+      <p class="form-subtitle">Update the details for your media item</p>
+
+      <form action="/media/edit/<%= mediaItem._id %>" method="POST" class="media-form">
+
+        <div class="form-group half">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text"
+            value="<%= mediaItem.title %>" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="category">Category</label>
+          <input id="category" name="category" type="text"
+            value="<%= mediaItem.category %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="synopsis">Synopsis</label>
+          <textarea id="synopsis" name="synopsis" rows="4"><%= mediaItem.synopsis %></textarea>
+        </div>
+
+        <div class="form-group half">
+          <label for="rating">Rating (0-10)</label>
+          <input id="rating" name="rating" type="number"
+            step="0.1" min="0" max="10"
+            value="<%= mediaItem.rating %>" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="stars">Stars (1-5)</label>
+          <input id="stars" name="stars" type="number"
+            min="1" max="5"
+            value="<%= mediaItem.stars %>" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="smallPosterImage">Small Poster URL</label>
+          <input id="smallPosterImage" name="smallPosterImage" type="url"
+            value="<%= mediaItem.smallPosterImage %>" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="largePosterImage">Large Poster URL</label>
+          <input id="largePosterImage" name="largePosterImage" type="url"
+            value="<%= mediaItem.largePosterImage %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="trailerUrl">YouTube Trailer URL</label>
+          <input id="trailerUrl" name="trailerUrl" type="url"
+            value="<%= mediaItem.youtubeTrailerLink %>" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="rentalPrice">Rental Price</label>
+          <input id="rentalPrice" name="rentalPrice" type="number"
+            step="0.01" min="0"
+            value="<%= mediaItem.rentalPrice %>" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="purchasePrice">Purchase Price</label>
+          <input id="purchasePrice" name="purchasePrice" type="number"
+            step="0.01" min="0"
+            value="<%= mediaItem.purchasePrice %>" required>
+        </div>
+
+        <div class="form-group checkbox-label half">
+          <input type="checkbox" name="cbIsMovie"
+            <%= mediaItem.isMovie ? "checked" : "" %>>
+          <span>Is Movie</span>
+        </div>
+
+        <div class="form-group checkbox-label half">
+          <input type="checkbox" name="cbIsFeatured"
+            <%= mediaItem.isFeatured ? "checked" : "" %>>
+          <span>Is Featured</span>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          <%= mediaItem.isMovie ? "Update Movie" : "Update TV Show" %>
+        </button>
+
+      </form>
+    </section>
+  </main>
+
+  <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

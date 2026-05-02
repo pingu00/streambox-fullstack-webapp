@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox | Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <%- include("partials/header.ejs") %>
+
+    <main>
+      <!-- Hero Section (Carousel) -->
+      <section class="hero">
+        <div class="hero-carousel">
+
+          <% for (let movie of featuredMovies) { %>
+            <div class="hero-slide">
+
+              <img src="<%= movie.largePosterImage %>" alt="<%= movie.title %> banner" class="hero-bg">
+
+              <div class="hero-content">
+                <h1>
+                  <%= movie.title %>
+                </h1>
+                <p>
+                  <%= movie.synopsis %>
+                </p>
+                <a href="/media/<%= movie.id %>" class="btn-primary">
+                  View Details
+                </a>
+              </div>
+
+            </div>
+            <% } %>
+
+        </div>
+
+        <div class="hero-btn-container">
+          <button class="hero-btn prev-btn" aria-label="Previous slide">
+            &#10094;
+          </button>
+          <button class="hero-btn next-btn" aria-label="Next slide">
+            &#10095;
+          </button>
+        </div>
+      </section>
+
+      <!-- Featured Movies Section -->
+      <section class="featured-section container">
+        <h2>Featured Movies</h2>
+
+        <div class="media-grid">
+          <% for (let movie of featuredMovies) { %>
+            <div class="media-card">
+              <a href="/media/<%= movie.id %>">
+                <img src="<%= movie.smallPosterImage %>" alt="<%= movie.title %>">
+              </a>
+              <p class="media-title">
+                <%= movie.title %>
+              </p>
+            </div>
+            <% } %>
+        </div>
+      </section>
+
+      <!-- Featured TV Shows Section -->
+      <section class="featured-section container">
+        <h2>Featured TV Shows</h2>
+
+        <div class="media-grid">
+          <% for (let show of featuredTvShows) { %>
+            <div class="media-card">
+              <a href="/media/<%= show.id %>">
+                <img src="<%= show.smallPosterImage %>" alt="<%= show.title %>">
+              </a>
+              <p class="media-title">
+                <%= show.title %>
+              </p>
+            </div>
+            <% } %>
+        </div>
+      </section>
+
+      <!-- Additional Content Section -->
+      <section class="top-rated-section container">
+        <h2>Top Rated</h2>
+
+        <div class="top-rated-grid">
+          <% for (let index=0; index < topRatedMedia.length; index++) { %>
+            <div class="top-rated-card">
+              <span class="rank">
+                <%= index + 1 %>
+              </span>
+
+              <a href="/media/<%= topRatedMedia[index].id %>">
+                <img src="<%= topRatedMedia[index].smallPosterImage %>" alt="<%= topRatedMedia[index].title %>">
+              </a>
+
+              <p class="media-title">
+                <%= topRatedMedia[index].title %>
+              </p>
+
+              <p class="top-rated-media-rating">
+                Rating: <%= topRatedMedia[index].rating %>
+              </p>
+            </div>
+            <% } %>
+        </div>
+      </section>
+
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+
+      <script src="/js/hero-carousel.js"></script>
+</body>
+
+</html>

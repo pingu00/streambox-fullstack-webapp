@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox | Create Media</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <%- include("partials/header.ejs") %>
+
+  <main class="form-page">
+    <section class="form-section">
+      <h1>Create New Media</h1>
+
+      <form action="/create-media" method="post" class="media-form">
+
+        <div class="form-group half">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="category">Category</label>
+          <input id="category" name="category" type="text" required>
+        </div>
+
+        <div class="form-group">
+          <label for="synopsis">Synopsis</label>
+          <textarea id="synopsis" name="synopsis" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group half">
+          <label for="rating">Rating (0-10)</label>
+          <input id="rating" name="rating" type="number" step="0.1" min="0" max="10" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="stars">Stars (1-5)</label>
+          <input id="stars" name="stars" type="number" min="1" max="5" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="smallPosterImage">Small Poster URL</label>
+          <input id="smallPosterImage" name="smallPosterImage" type="url" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="largePosterImage">Large Poster URL</label>
+          <input id="largePosterImage" name="largePosterImage" type="url" required>
+        </div>
+
+        <div class="form-group">
+          <label for="trailerUrl">YouTube Trailer URL</label>
+          <input id="trailerUrl" name="trailerUrl" type="url" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="rentalPrice">Rental Price</label>
+          <input id="rentalPrice" name="rentalPrice" type="number" step="0.01" min="0" required>
+        </div>
+
+        <div class="form-group half">
+          <label for="purchasePrice">Purchase Price</label>
+          <input id="purchasePrice" name="purchasePrice" type="number" step="0.01" min="0" required>
+        </div>
+
+        <div class="form-group checkbox-label half">
+          <input type="checkbox" name="cbIsMovie">
+          <span>Media Type is Movie</span>
+        </div>
+
+        <div class="form-group checkbox-label half">
+          <input type="checkbox" name="cbIsFeatured">
+          <span>Featured on Home Page</span>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          Create Media
+        </button>
+
+      </form>
+    </section>
+  </main>
+
+  <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

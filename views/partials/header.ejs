@@ -1,0 +1,38 @@
+<header class="site-header <%= session.currUser && session.currUser.isAdmin ? 'admin-mode' : '' %>">
+  <nav class="primary-nav">
+    <a href="/" class="logo">
+      <img src="/img/logo.png" alt="SteamBox Logo">
+    </a>
+
+    <ul class="nav-links">
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/movies">Movies</a>
+      </li>
+      <li>
+        <a href="/tv-shows">TV Shows</a>
+      </li>
+
+      <% if (session.currUser===undefined) { %>
+        <li>
+          <a href="/users/login" class="menu-link">Login</a>
+        </li>
+      <% } else { %>
+          <% if (session.currUser.isAdmin===true) { %>
+            <li>
+              <a href="/create-media">Create Media</a>
+            </li>
+            <li>
+              <a href="/users/logout" class="menu-link">Logout</a>
+            </li>
+          <% } else { %>
+              <li>
+                <a href="/users/logout" class="menu-link">Logout</a>
+              </li>
+            <% } %>
+      <% } %>
+    </ul>
+  </nav>
+</header>

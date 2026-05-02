@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox | <%= mediaItem.title %>
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <%- include("partials/header.ejs") %>
+
+    <main>
+      <section class="media-details">
+
+        <!-- Background Banner -->
+        <div class="media-banner">
+          <img src="<%= mediaItem.largePosterImage %>" alt="<%= mediaItem.title %> background" class="media-banner-bg">
+
+          <!-- Foreground Content -->
+          <div class="media-banner-content">
+
+            <!-- Left: Small Poster -->
+            <div class="media-poster">
+              <img src="<%= mediaItem.smallPosterImage %>" alt="<%= mediaItem.title %> poster">
+            </div>
+
+            <!-- Right: Info -->
+            <div class="media-info">
+              <h1>
+                <%= mediaItem.title %>
+              </h1>
+
+              <p class="media-category">
+                category: <%= mediaItem.category %>
+              </p>
+
+              <p class="media-rating">
+                Rating: <%= mediaItem.rating %> / 10
+              </p>
+
+              <p class="media-stars">
+                <% for (let i=1; i <=5; i++) { %>
+                  <% if (i <=mediaItem.stars) { %>
+                    <span class="star filled">★</span>
+                    <% } else { %>
+                      <span class="star">☆</span>
+                      <% } %>
+                        <% } %>
+              </p>
+
+              <p class="media-synopsis">
+                <%= mediaItem.synopsis %>
+              </p>
+
+              <div class="media-pricing">
+                <p>Rent: $<%= mediaItem.rentalPrice %> / day</p>
+                <p>Purchase: $<%= mediaItem.purchasePrice %>
+                </p>
+              </div>
+
+              <a href="<%= mediaItem.youtubeTrailerLink %>" target="_blank" class="btn-primary">
+                Watch Trailer
+              </a>
+               <a href="/purchase/<%= mediaItem._id %>/<%= session.currUser?._id%>" target="_blank" class="btn-primary">
+                Buy
+              </a>
+              <% if (session.currUser?.isAdmin) { %>
+                <a href="/media/edit/<%= mediaItem._id %>" class="btn-primary">Edit</a>
+                <a href="/media/delete/<%= mediaItem._id %>" class="btn-primary">Delete</a>
+                <%}%>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</head>
+
+<body class="login-page">
+
+  <a href="/" class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/StreamBox_2015_logo.svg" alt="StreamBox logo"
+      class="logo-img">
+  </a>
+
+  <main class="login-wrapper">
+    <h1>Enter to continue</h1>
+
+    <form action="/users/login" method="POST" class="login-form">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button class="btn-primary">Login</button>
+    </form>
+
+    <p class="login-error">
+      <%= msg %>
+    </p>
+  </main>
+
+</body>
+
+</html>
