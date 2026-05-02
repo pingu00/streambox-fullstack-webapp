@@ -26,14 +26,11 @@ Developed as an academic project, it simulates a streaming-style platform with m
 
 ## Screenshots
 
-### Home Page
-![Home Page](./screenshots/home.png)
-
-### Login Page
-![Login Page](./screenshots/login.png)
-
-### Admin Media Management
-![Admin Media Management](./screenshots/admin-edit.png)
+<p align="center">
+  <img src="./screenshots/home.png" alt="Home Page" width="32%" />
+  <img src="./screenshots/login.png" alt="Login Page" width="32%" />
+  <img src="./screenshots/admin-edit.png" alt="Admin Media Management" width="32%" />
+</p>
 
 ## Demo Accounts
 
